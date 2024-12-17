@@ -1,0 +1,17 @@
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "description": "incubyte assessment",
+  "main": "index.js",
+  "author": "dineshkumar",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^9.3.0",
+    "cypress": "^13.16.1",
+    "cypress-cucumber-preprocessor": "2.3.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "step_definitions": "cypress/e2e/"
+  }
+}
