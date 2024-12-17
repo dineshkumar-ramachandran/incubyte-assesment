@@ -24,6 +24,29 @@ class loginPom {
       });
   }
 
+  enterSmallPassword() {
+    cy.get("#password").type(123);
+  }
+
+  assertPasswordRequirementMessage() {
+    return cy
+      .get("#password-error")
+      .should(
+        "have.text",
+        "Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored."
+      );
+  }
+
+  assertExistingAccount() {
+    return cy
+      .get(".message-error.error.message")
+      .invoke("text")
+      .should(
+        "contains",
+        "There is already an account with this email address. If you are sure that it is your email address, click here to get your password and access your account."
+      );
+  }
+
   assertInvalidEmailMessage() {
     return cy
       .get("#email_address-error")
@@ -37,7 +60,7 @@ class loginPom {
     return cy.get("#password").clear().type("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
   }
 
-  assertPasswordRequirementMessage() {
+  assertSameCharacterErrorMessage() {
     return cy
       .get("#password-error")
       .should(
