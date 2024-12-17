@@ -41,6 +41,8 @@ When("User should fill all the required fields with valid details and click subm
 Then("User account should be created and user should able to login with the credentials", () => {
   loginPom.accountCreationAssertion();
   cy.assertRegisteredData();
+  cy.signOut();
+  cy.signIn();
 });
 
 When("User should fill all the required fields with existing account details and click submit button", () => {

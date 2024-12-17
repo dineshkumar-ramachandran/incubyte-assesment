@@ -51,3 +51,16 @@ Cypress.Commands.add("assertRegisteredData", () => {
     .invoke("text")
     .should("contains", (firstName, lastName, email));
 });
+
+Cypress.Commands.add("signOut", () => {
+  cy.get(".action.switch:visible").click();
+  cy.contains("Sign Out").click();
+});
+
+Cypress.Commands.add("signIn", () => {
+  cy.contains("Sign In").click();
+  cy.get("#email").type(email);
+  cy.get("#pass").type(password);
+  cy.get(".action.login.primary").click();
+  cy.get(".logged-in:visible").should("have.text", `Welcome, ${firstName} ${lastName}!`);
+});

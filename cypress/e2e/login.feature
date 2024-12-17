@@ -23,4 +23,3 @@ Given User should load the url and assert the application loaded url
 When User should able to click the account creation button
 When User should fill all the required fields with existing account details and click submit button
 Then User account should not be created and error for existing account should thrown
-
