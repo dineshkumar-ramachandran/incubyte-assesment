@@ -7,7 +7,8 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       on("file:preprocessor", cucumber());
     },
-    specPattern: "cypress/e2e/*.feature",
-    baseUrl: "https://magento.softwaretestingboard.com/",
+    specPattern: "cypress/e2e/",
+    // baseUrl: "https://magento.softwaretestingboard.com/",
+    testIsolation: false,
   },
 });
